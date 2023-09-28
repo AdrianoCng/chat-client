@@ -1,7 +1,9 @@
-import LoginForm from "./containers/LoginForm";
+import { RouterProvider } from "react-router-dom";
+
+import router from "./router";
 
 function App() {
-  return <LoginForm />;
+  return <RouterProvider router={router} />;
 }
 
 export default App;

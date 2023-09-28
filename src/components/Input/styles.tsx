@@ -1,9 +1,9 @@
-import styled, { css } from 'styled-components';
+import styled, { css } from "styled-components";
 
 export const InputStyledComponent = styled.input<{ $fullWidth?: boolean }>`
   padding: 5px;
   border: 1px solid #ccc;
-  border-radius: 5px;
+  border-radius: 10px;
   font-size: 16px;
   transition: all 150ms ease;
 
