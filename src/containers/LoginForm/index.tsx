@@ -1,39 +1,39 @@
-import { useRef } from 'react';
+import { useRef } from "react";
 
-import * as Styled from './styles';
+import * as Styled from "./styles";
 
-import Button from '@components/Button';
-import Input from '@components/Input';
-import Label from '@components/Label';
-import Form from '@/components/Form';
-import FormGroup from '@/components/FormGroup';
+import Button from "@components/Button";
+import Input from "@components/Input";
+import Label from "@components/Label";
+import login_img from "@assets/images/login_img.jpg";
 
 export default function LoginForm() {
   const usernameRef = useRef<HTMLInputElement>(null);
   const passwordRef = useRef<HTMLInputElement>(null);
 
   return (
-    <Styled.Container>
-      <Form>
-        <FormGroup>
+    <Styled.Wrapper>
+      <Styled.Img src={login_img} />
+
+      <Styled.Form>
+        <Styled.FormGroup>
           <Label htmlFor="username">Username</Label>
           <Input id="username" type="text" ref={usernameRef} />
-        </FormGroup>
-
-        <FormGroup>
+        </Styled.FormGroup>
+        <Styled.FormGroup>
           <Label htmlFor="password">Password</Label>
           <Input id="password" type="password" ref={passwordRef} />
-        </FormGroup>
-
-        <Styled.FormSpan>
-          Don't have an account?{' '}
-          <Styled.FormLink href="#">Sign up</Styled.FormLink>
-        </Styled.FormSpan>
-
-        <Button type="submit" $variant="primary">
-          Log in
-        </Button>
-      </Form>
-    </Styled.Container>
+        </Styled.FormGroup>
+        <Styled.FormLink href="#">Forgot Password?</Styled.FormLink>
+        <Styled.ButtonsGroup>
+          <Button type="button" $variant="secondary">
+            Sign up
+          </Button>
+          <Button type="submit" $variant="primary">
+            Log in
+          </Button>
+        </Styled.ButtonsGroup>
+      </Styled.Form>
+    </Styled.Wrapper>
   );
 }

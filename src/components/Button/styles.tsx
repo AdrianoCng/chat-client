@@ -1,20 +1,20 @@
-import styled, { css } from 'styled-components';
+import styled, { css } from "styled-components";
 
 const primaryButtonStyles = css`
   background-color: var(--primary);
   color: #fff;
-  border: none;
+  border: 1px solid var(--primary);
   box-shadow: 0 0 5px rgba(var(--primary-rgb), 0.5);
 `;
 
 const secondaryButtonStyles = css`
-  border: var(--primary);
+  border: 1px solid var(--primary);
   color: var(--primary);
   background-color: #fff;
   box-shadow: 0 0 5px rgba(var(--primary-rgb), 0.5);
 `;
 
-export const Button = styled.button<{ $variant: 'primary' | 'secondary' }>`
+export const Button = styled.button<{ $variant: "primary" | "secondary" }>`
   padding: 10px;
   font-size: 1.6rem;
   cursor: pointer;
@@ -22,10 +22,9 @@ export const Button = styled.button<{ $variant: 'primary' | 'secondary' }>`
   border-radius: 5px;
 
   ${({ $variant }) =>
-    $variant === 'primary' ? primaryButtonStyles : secondaryButtonStyles}
+    $variant === "primary" ? primaryButtonStyles : secondaryButtonStyles}
 
   &:hover {
-    ${({ $variant }) =>
-      $variant === 'primary' ? secondaryButtonStyles : primaryButtonStyles}
+    ${({ $variant }) => $variant === "secondary" && primaryButtonStyles}
   }
 `;

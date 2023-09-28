@@ -1,37 +1,50 @@
-import styled from 'styled-components';
+import styled, { css } from "styled-components";
 
-export const Container = styled.div`
+import { tablet } from "@/styles/breakpoints";
+
+export const Wrapper = styled.div`
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  height: 100vh;
-  margin: 0 40px;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  position: absolute;
+  left: 50%;
+  top: 25%;
+  transform: translate(-50%, -25%);
+  overflow: hidden;
 `;
 
-// export const Form = styled.form`
-//   background: #fff;
-//   display: flex;
-//   align-items: center;
-//   padding: 20px;
-//   flex-direction: column;
-//   gap: 20px;
-//   border-radius: 10px;
-//   box-shadow: 1px 1px 5px rgba(var(--primary-rgb), 0.2);
-//   transform: translateY(-50%);
-// `;
+export const Img = styled.img`
+  width: 350px;
+  aspect-ratio: 1;
 
-// export const FormGroup = styled.div`
-//   display: flex;
-//   flex-direction: column;
-// `;
+  ${tablet(css`
+    display: none;
+  `)}
+`;
 
-export const FormSpan = styled.span`
-  font-size: 1.4rem;
-  color: var(--primary);
+export const Form = styled.form`
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  padding: 20px;
+  gap: 10px;
+  justify-content: center;
+`;
+
+export const FormGroup = styled.div`
+  display: flex;
+  flex-direction: column;
 `;
 
 export const FormLink = styled.a`
-  color: inherit;
-  font-weight: 500;
+  color: var(--primary);
+  font-size: 1.4rem;
+  margin-bottom: 20px;
+`;
+
+export const ButtonsGroup = styled.div`
+  display: flex;
+  justify-content: center;
+  gap: 20px;
 `;
