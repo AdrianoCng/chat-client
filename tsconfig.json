@@ -21,7 +21,9 @@
       "@assets/*": ["src/assets/*"],
       "@styles/*": ["src/styles/*"],
       "@containers/*": ["src/containers/*"],
-      "@routes/*": ["src/routes/*"]
+      "@hooks/*": ["src/hooks/*"],
+      "@routes/*": ["src/routes/*"],
+      "@configs/*": ["src/configs/*"]
     },
 
     /* Linting */
