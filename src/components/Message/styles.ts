@@ -17,7 +17,7 @@ export const Message = styled.div<{ $isMyMessage: boolean }>`
           margin-left: auto;
         `
       : css`
-          background-color: #ddd;
+          background-color: #eee;
           margin-right: auto;
         `}
 
