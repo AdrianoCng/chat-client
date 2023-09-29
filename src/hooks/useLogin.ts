@@ -1,7 +1,7 @@
 import { useMutation } from "@tanstack/react-query";
-import api from "@/configs/api";
 import { AxiosError } from "axios";
 
+import api from "@/configs/api";
 import connectSocket from "@/configs/socket";
 
 interface LoginCredentials {
