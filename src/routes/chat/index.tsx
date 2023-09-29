@@ -1,5 +1,6 @@
 import Input from "@/components/Input";
 import * as Styled from "./styles";
+import Message from "@/components/Message";
 
 export default function Chat() {
   return (
@@ -7,7 +8,9 @@ export default function Chat() {
       <Styled.Sidebar>Sidebar</Styled.Sidebar>
 
       <Styled.Main>
-        <Styled.ChatContent>Main</Styled.ChatContent>
+        <Styled.ChatContent>
+          <Message text="Hello World" />
+        </Styled.ChatContent>
         <Input />
         {/* <Styled.InputText /> */}
       </Styled.Main>

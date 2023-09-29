@@ -1,13 +1,15 @@
-import styled from "styled-components";
+import { tablet } from "@/styles/breakpoints";
+import styled, { css } from "styled-components";
 
 export const Container = styled.div`
   display: flex;
-  height: calc(100vh - 40px);
-  margin: 20px;
+  height: calc(100vh - 80px);
+  margin: 40px 80px;
   border-radius: 20px;
   box-shadow: 1px 1px 15px rgba(0, 0, 0, 0.2);
   overflow: hidden;
   font-size: 1.6rem;
+  background-color: #fff;
 `;
 
 export const Sidebar = styled.div`
@@ -16,6 +18,10 @@ export const Sidebar = styled.div`
   padding: 20px;
   color: white;
   min-width: 200px;
+
+  ${tablet(css`
+    display: none;
+  `)}
 `;
 
 export const Main = styled.div`
@@ -28,4 +34,10 @@ export const Main = styled.div`
 
 export const ChatContent = styled.div`
   flex-grow: 1;
+  padding: 20px;
+
+  // Message
+  div {
+    margin-bottom: 20px;
+  }
 `;
