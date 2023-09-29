@@ -1,6 +1,22 @@
-import styled, { css } from "styled-components";
+import styled, { css, keyframes } from "styled-components";
 
 const tailWidth = 20;
+
+const pop = keyframes`
+  0% {
+    opacity: 0;
+    transform: translateY(100px)
+  }
+
+  50% {
+    transform: translateY(-2px)
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0)
+  }
+`;
 
 export const Message = styled.div<{ $isMyMessage: boolean }>`
   position: relative;
@@ -8,6 +24,7 @@ export const Message = styled.div<{ $isMyMessage: boolean }>`
   border-radius: 20px;
   width: fit-content;
   max-width: 500px;
+  animation: ${pop} 350ms ease;
 
   ${({ $isMyMessage }) =>
     $isMyMessage
