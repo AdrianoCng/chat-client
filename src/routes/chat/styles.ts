@@ -35,9 +35,7 @@ export const Main = styled.div`
 export const ChatContent = styled.div`
   flex-grow: 1;
   padding: 20px;
-
-  // Message
-  div {
-    margin-bottom: 20px;
-  }
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 `;
