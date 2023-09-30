@@ -20,6 +20,7 @@ export const InputStyledComponent = styled.input<{
   $fullWidth?: boolean;
   $hasError?: boolean;
 }>`
+  outline: none;
   padding: 5px;
   border: 1px solid #ddd;
   border-radius: 8px;
@@ -38,15 +39,20 @@ export const InputStyledComponent = styled.input<{
       border-color: #ff0000;
     `}
 
-  &:hover:not(:disabled) {
-    border-color: #bbb;
-  }
 
-  &:focus:not(:disabled) {
-    outline: none;
-    border-color: #ccc;
-    box-shadow: 0 0 5px #ccc;
-  }
+  ${({ $hasError }) =>
+    !$hasError &&
+    css`
+      &:hover:not(:disabled) {
+        border-color: #bbb;
+      }
+
+      &:focus:not(:disabled) {
+        outline: none;
+        border-color: #ccc;
+        box-shadow: 0 0 5px #aaa;
+      }
+    `}
 
   &:disabled {
     background-color: #f0f0f0;
