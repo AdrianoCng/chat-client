@@ -15,6 +15,10 @@ export default defineConfig({
       "@containers": path.resolve(__dirname, "./src/containers"),
       "@hooks": path.resolve(__dirname, "./src/hooks"),
       "@configs": path.resolve(__dirname, "./src/configs"),
+      "@contexts": path.resolve(__dirname, "./src/contexts"),
     },
+  },
+  server: {
+    port: 5173,
   },
 });

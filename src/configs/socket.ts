@@ -1,6 +1,6 @@
 import { io } from "socket.io-client";
 
-const socket = io("http://localhost:5000", {
+export const socket = io("http://localhost:5000", {
   withCredentials: true,
   retries: 1,
   autoConnect: false,

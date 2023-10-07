@@ -23,7 +23,8 @@
       "@containers/*": ["src/containers/*"],
       "@hooks/*": ["src/hooks/*"],
       "@routes/*": ["src/routes/*"],
-      "@configs/*": ["src/configs/*"]
+      "@configs/*": ["src/configs/*"],
+      "@contexts/*": ["src/contexts/*"]
     },
 
     /* Linting */
