@@ -11,7 +11,6 @@ interface AuthProviderContext {
   login: (user: User) => void;
   logout: () => void;
   isLoggedIn: boolean;
-  isLoading: boolean;
 }
 
 export const authProviderContext = createContext<

@@ -11,7 +11,7 @@ export default function AuthProvider({
 }) {
   const [user, setUser] = useState<User | null>(null);
 
-  const { isLoading } = useQuery({
+  useQuery({
     queryKey: ["check-auth"],
     queryFn: async () => {
       try {
@@ -45,7 +45,7 @@ export default function AuthProvider({
 
   return (
     <authProviderContext.Provider
-      value={{ user, login, logout, isLoggedIn: !!user, isLoading }}
+      value={{ user, login, logout, isLoggedIn: !!user }}
     >
       {children}
     </authProviderContext.Provider>
