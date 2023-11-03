@@ -1,5 +1,5 @@
 import LoginForm from "@/containers/LoginForm";
-import useAuthProviderContext from "@/hooks/useAuthProviderContext";
+import useAuthProviderContext from "@/contexts/AuthProvider/hooks/useAuthProviderContext";
 import { Navigate } from "react-router-dom";
 
 export default function Login() {

@@ -1,6 +1,6 @@
 import { Navigate, Outlet } from "react-router-dom";
 
-import useAuthProviderContext from "@/hooks/useAuthProviderContext";
+import useAuthProviderContext from "@/contexts/AuthProvider/hooks/useAuthProviderContext";
 
 export default function ProtectedRoute() {
   const { isLoggedIn } = useAuthProviderContext();

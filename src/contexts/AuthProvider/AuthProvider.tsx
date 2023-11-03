@@ -1,7 +1,10 @@
 import { useCallback, useState } from "react";
 import { useQuery } from "@tanstack/react-query";
 
-import { authProviderContext, User } from "@/hooks/useAuthProviderContext";
+import {
+  authProviderContext,
+  User,
+} from "@/contexts/AuthProvider/hooks/useAuthProviderContext";
 import api from "@/configs/api";
 
 export default function AuthProvider({

@@ -1,6 +1,6 @@
 import api from "@/configs/api";
 import { useMutation } from "@tanstack/react-query";
-import useAuthProviderContext from "./useAuthProviderContext";
+import useAuthProviderContext from "../contexts/AuthProvider/hooks/useAuthProviderContext";
 import { socket } from "@/configs/socket";
 
 export default function useLogout() {

@@ -2,8 +2,9 @@ import { useMutation } from "@tanstack/react-query";
 import { AxiosError } from "axios";
 
 import api from "@/configs/api";
-import connectSocket from "@/configs/socket";
-import useAuthProviderContext, { User } from "./useAuthProviderContext";
+import useAuthProviderContext, {
+  User,
+} from "../contexts/AuthProvider/hooks/useAuthProviderContext";
 
 interface LoginCredentials {
   username: string;
@@ -28,7 +29,6 @@ export default function useLogin() {
     },
     async onSuccess(data) {
       try {
-        await connectSocket();
         login(data);
       } catch (error) {
         console.log("connection failed: ", error);
