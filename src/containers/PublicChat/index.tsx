@@ -5,9 +5,13 @@ import { useEffect, useRef } from "react";
 
 export default function PublicChat() {
   const chatRef = useRef<HTMLDivElement>(null);
-  const { publicChat } = useSocketContext();
+  const { publicChat, newPublicMessages } = useSocketContext();
 
-  const messages = publicChat?.messages || [];
+  const history = publicChat?.messages || [];
+
+  const newMessages = newPublicMessages;
+
+  const messages = [...history, ...newMessages];
 
   useEffect(() => {
     const wrapper = chatRef.current;
@@ -15,7 +19,7 @@ export default function PublicChat() {
     if (!wrapper) return;
 
     wrapper.scrollTop = wrapper.scrollHeight;
-  }, [messages.length]);
+  }, [history.length]);
 
   return (
     <Styled.ChatContent ref={chatRef}>
