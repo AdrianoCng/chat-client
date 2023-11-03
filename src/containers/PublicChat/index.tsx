@@ -19,7 +19,7 @@ export default function PublicChat() {
     if (!wrapper) return;
 
     wrapper.scrollTop = wrapper.scrollHeight;
-  }, [history.length]);
+  }, [messages.length]);
 
   return (
     <Styled.ChatContent ref={chatRef}>
