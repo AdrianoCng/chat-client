@@ -1,7 +1,9 @@
 import { createContext, useContext } from "react";
+import { PublicChat } from "./usePublicChat";
 
 interface ISocketContext {
   connected: boolean;
+  publicChat?: PublicChat;
 }
 
 export const socketContext = createContext<ISocketContext | undefined>(

@@ -1,19 +1,5 @@
+import { monthAbbreviations } from "@/constants";
 import * as Styled from "./styles";
-
-const monthAbbreviations = [
-  "Jan",
-  "Feb",
-  "Mar",
-  "Apr",
-  "May",
-  "Jun",
-  "Jul",
-  "Aug",
-  "Sep",
-  "Oct",
-  "Nov",
-  "Dec",
-];
 
 interface Props {
   text: string;

@@ -2,14 +2,17 @@ import { useEffect, useState } from "react";
 import socket from "@/configs/socket";
 import { socketContext } from "@/contexts/SocketProvider/hooks/useSocketContext";
 import useAuthProviderContext from "../AuthProvider/hooks/useAuthProviderContext";
+import usePublicChat from "./hooks/usePublicChat";
 
 interface SocketProviderProps {
   children: React.ReactNode;
 }
 
 export default function SocketProvider({ children }: SocketProviderProps) {
-  const { isLoggedIn } = useAuthProviderContext();
   const [connected, setConnected] = useState(socket.connected);
+
+  const { isLoggedIn } = useAuthProviderContext();
+  const publicChat = usePublicChat();
 
   useEffect(() => {
     if (!isLoggedIn) return;
@@ -63,6 +66,7 @@ export default function SocketProvider({ children }: SocketProviderProps) {
     <socketContext.Provider
       value={{
         connected,
+        publicChat,
       }}
     >
       {children}

@@ -12,7 +12,7 @@ export const Container = styled.div`
   background-color: #fff;
 `;
 
-export const Sidebar = styled.div`
+export const Sidebar = styled.aside`
   background-color: var(--primary);
   flex-grow: 1;
   padding: 20px;
@@ -24,16 +24,8 @@ export const Sidebar = styled.div`
   `)}
 `;
 
-export const Main = styled.div`
+export const Main = styled.main`
   flex-grow: 5;
-  padding: 20px;
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-`;
-
-export const ChatContent = styled.div`
-  flex-grow: 1;
   padding: 20px;
   display: flex;
   flex-direction: column;
