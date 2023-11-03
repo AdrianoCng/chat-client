@@ -11,9 +11,7 @@ export default function PublicChat() {
 
   const history = publicChat?.messages || [];
 
-  const newMessages = newPublicMessages;
-
-  const messages = [...history, ...newMessages];
+  const messages = [...history, ...newPublicMessages];
 
   useEffect(() => {
     const wrapper = chatRef.current;
