@@ -1,5 +1,5 @@
 import * as Styled from "./styles";
-import Input from "@/components/Input";
+import SendMessageForm from "@/containers/SendMessageForm";
 import PublicChat from "@/containers/PublicChat";
 
 export default function Chat() {
@@ -9,7 +9,7 @@ export default function Chat() {
 
       <Styled.Main>
         <PublicChat />
-        <Input />
+        <SendMessageForm />
       </Styled.Main>
     </Styled.Container>
   );
