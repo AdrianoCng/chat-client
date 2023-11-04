@@ -12,19 +12,38 @@ const secondaryButtonStyles = css`
   color: var(--primary);
   background-color: #fff;
   box-shadow: 0 0 5px rgba(var(--primary-rgb), 0.5);
+
+  &:hover {
+    ${primaryButtonStyles}
+  }
 `;
 
-export const Button = styled.button<{ $variant: "primary" | "secondary" }>`
+const tertiaryButtonStyles = css`
+  background-color: var(--secondary);
+  color: var(--primary);
+  font-weight: 500;
+  border: 1px solid var(--primary);
+
+  box-shadow: 0 0 5px rgba(var(--primary-rgb), 0.5);
+`;
+
+export const Button = styled.button<{
+  $variant: "primary" | "secondary" | "tertiary";
+}>`
   padding: 10px;
   font-size: 1.6rem;
   cursor: pointer;
   transition: all 0.3s ease;
   border-radius: 5px;
 
-  ${({ $variant }) =>
-    $variant === "primary" ? primaryButtonStyles : secondaryButtonStyles}
-
-  &:hover {
-    ${({ $variant }) => $variant === "secondary" && primaryButtonStyles}
-  }
+  ${({ $variant }) => {
+    switch ($variant) {
+      case "primary":
+        return primaryButtonStyles;
+      case "secondary":
+        return secondaryButtonStyles;
+      case "tertiary":
+        return tertiaryButtonStyles;
+    }
+  }}
 `;

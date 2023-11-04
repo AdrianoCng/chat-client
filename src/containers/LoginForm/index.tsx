@@ -67,6 +67,7 @@ export default function LoginForm() {
               formErrors.find((err) => err.field === "username")?.error
             }
             ref={usernameRef}
+            autoComplete="username"
           />
         </Styled.FormGroup>
         <Styled.FormGroup>
@@ -78,6 +79,7 @@ export default function LoginForm() {
               formErrors.find((err) => err.field === "password")?.error
             }
             ref={passwordRef}
+            autoComplete="current-password"
           />
         </Styled.FormGroup>
         <Styled.FormLink href="#">Forgot Password?</Styled.FormLink>

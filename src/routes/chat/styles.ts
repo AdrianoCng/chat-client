@@ -1,5 +1,4 @@
-import { tablet } from "@/styles/breakpoints";
-import styled, { css } from "styled-components";
+import styled from "styled-components";
 
 export const Container = styled.div`
   display: flex;
@@ -10,18 +9,6 @@ export const Container = styled.div`
   overflow: hidden;
   font-size: 1.6rem;
   background-color: #fff;
-`;
-
-export const Sidebar = styled.aside`
-  background-color: var(--primary);
-  flex-grow: 1;
-  padding: 20px;
-  color: white;
-  min-width: 200px;
-
-  ${tablet(css`
-    display: none;
-  `)}
 `;
 
 export const Main = styled.main`

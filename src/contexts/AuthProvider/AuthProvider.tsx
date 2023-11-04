@@ -30,6 +30,7 @@ export default function AuthProvider({
         return data;
       } catch (error) {
         setUser(null);
+        return error;
       }
     },
     enabled: !user,

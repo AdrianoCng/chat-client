@@ -5,23 +5,21 @@ import socket from "@/configs/socket";
 
 export default function useLogout() {
   const { logout } = useAuthProviderContext();
-  useMutation({
+
+  const { mutate, ...mutation } = useMutation({
     mutationKey: ["logout"],
     mutationFn: async () => {
-      const { data, status } = await api({
+      logout();
+      socket.disconnect();
+
+      const { data } = await api({
         url: "auth/logout",
         method: "POST",
       });
 
-      if (status < 400) {
-        logout();
-      }
-
       return data;
     },
-    onSuccess() {
-      logout();
-      socket.close();
-    },
   });
+
+  return [mutate, { ...mutation }] as const;
 }
