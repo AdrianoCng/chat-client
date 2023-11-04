@@ -16,5 +16,4 @@ export const Main = styled.main`
   padding: 20px;
   display: flex;
   flex-direction: column;
-  gap: 20px;
 `;
