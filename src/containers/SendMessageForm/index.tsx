@@ -1,33 +1,59 @@
 import * as Styled from "./styles";
-import { useRef, FormEventHandler } from "react";
+import {
+  FormEventHandler,
+  useEffect,
+  useState,
+  ChangeEventHandler,
+} from "react";
 import { BsFillSendFill } from "react-icons/bs";
 import Button from "@/components/Button";
 import Input from "@/components/Input";
 import { CHAT_EVENT } from "@/types/socketTypes";
 import socket from "@/configs/socket";
+import useAuthProviderContext from "@/contexts/AuthProvider/hooks/useAuthProviderContext";
+import useSocketContext from "@/contexts/SocketProvider/hooks/useSocketContext";
+import TypingNotification from "@/components/TypingNotification";
 
 export default function SendMessageForm() {
-  const inputRef = useRef<HTMLInputElement>(null);
+  const { user } = useAuthProviderContext();
+  const { publicUsersTyping } = useSocketContext();
+  const [inputValue, setInputValue] = useState("");
+
+  const isTyping = !!inputValue;
+
+  useEffect(() => {
+    if (!user?.username) return;
+
+    socket.emit(CHAT_EVENT.PUBLIC_TYPING, {
+      username: user.username,
+      isTyping,
+    });
+  }, [user?.username, isTyping]);
 
   const handleOnSubmit: FormEventHandler<HTMLFormElement> = (e) => {
     e.preventDefault();
 
-    const text = inputRef.current?.value;
+    if (!inputValue) return;
 
-    if (!text) return;
+    socket.emit(CHAT_EVENT.MESSAGE, inputValue);
 
-    socket.emit(CHAT_EVENT.MESSAGE, text);
-
-    inputRef.current.value = "";
+    setInputValue("");
   };
 
-  return (
-    <Styled.Form onSubmit={handleOnSubmit}>
-      <Input ref={inputRef} />
+  const handleOnChange: ChangeEventHandler<HTMLInputElement> = (e) =>
+    setInputValue(e.target.value);
 
-      <Button>
-        Send <BsFillSendFill />
-      </Button>
-    </Styled.Form>
+  return (
+    <Styled.Wrapper>
+      <TypingNotification usersTyping={publicUsersTyping} />
+
+      <Styled.Form onSubmit={handleOnSubmit}>
+        <Input value={inputValue} onChange={handleOnChange} />
+
+        <Button>
+          Send <BsFillSendFill />
+        </Button>
+      </Styled.Form>
+    </Styled.Wrapper>
   );
 }
