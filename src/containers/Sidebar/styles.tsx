@@ -24,6 +24,7 @@ export const LogoutButton = styled(Button)`
   font-size: 1.8rem;
   display: flex;
   justify-content: center;
+  align-items: center;
   gap: 10px;
 
   ${css`
