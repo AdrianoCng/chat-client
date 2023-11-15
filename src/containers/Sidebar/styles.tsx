@@ -5,9 +5,11 @@ import Button from "@/components/Button";
 export const Sidebar = styled.aside`
   background-color: var(--primary);
   flex-grow: 1;
+  gap: 20px;
   padding: 20px;
   color: white;
   min-width: 200px;
+  max-width: 350px;
   display: flex;
   flex-direction: column;
 
@@ -18,6 +20,11 @@ export const Sidebar = styled.aside`
 
 export const Nav = styled.nav`
   flex-grow: 1;
+  overflow-y: auto;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
 `;
 
 export const LogoutButton = styled(Button)`
@@ -38,4 +45,12 @@ export const LogoutButton = styled(Button)`
       filter: brightness(1.05);
     }
   `}
+`;
+
+export const UserList = styled.ul`
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
 `;

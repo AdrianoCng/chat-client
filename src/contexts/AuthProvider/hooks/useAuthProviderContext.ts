@@ -1,9 +1,13 @@
 import { createContext, useContext } from "react";
 
+export type Status = "online" | "offline" | "away";
 export interface User {
   username: string;
   _id: string;
   __v: number;
+  status: Status;
+  createdAt: Date;
+  lastLoginAt: Date;
 }
 
 interface AuthProviderContext {
@@ -13,9 +17,7 @@ interface AuthProviderContext {
   isLoggedIn: boolean;
 }
 
-export const authProviderContext = createContext<
-  AuthProviderContext | undefined
->(undefined);
+export const authProviderContext = createContext<AuthProviderContext | undefined>(undefined);
 
 export default function useAuthProviderContext() {
   const context = useContext(authProviderContext);

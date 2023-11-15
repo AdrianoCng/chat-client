@@ -10,6 +10,7 @@
   background-color: var(--bg-white);
 
   --secondary: #ffc701;
+  --secondary-rgb: 255, 200, 0;
   --primary: #2f4858;
   --primary-rgb: 255 199 1;
   --text: #494949;

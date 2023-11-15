@@ -5,6 +5,7 @@ import useAuthProviderContext from "../AuthProvider/hooks/useAuthProviderContext
 import useNewPublicMessages from "./listeners/useNewPublicMessages";
 import usePublicChat from "./listeners/usePublicChat";
 import usePublicUsersTyping from "./listeners/usePublicUsersTyping";
+import useUsersList from "./listeners/useUsersList";
 
 interface SocketProviderProps {
   children: React.ReactNode;
@@ -17,6 +18,7 @@ export default function SocketProvider({ children }: SocketProviderProps) {
   const publicChat = usePublicChat();
   const newPublicMessages = useNewPublicMessages();
   const publicUsersTyping = usePublicUsersTyping();
+  const usersList = useUsersList();
 
   useEffect(() => {
     if (!isLoggedIn) return;
@@ -73,6 +75,7 @@ export default function SocketProvider({ children }: SocketProviderProps) {
         publicChat,
         newPublicMessages,
         publicUsersTyping,
+        usersList,
       }}
     >
       {children}
